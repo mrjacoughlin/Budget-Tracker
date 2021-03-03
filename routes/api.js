@@ -10,3 +10,13 @@ router.post("/api/transaction", ({ body }, res) => {
       res.status(404).json(err);
     });
 });
+
+router.post("/api/transaction/bulk", ({ body }, res) => {
+  transactions.insertMany(body).then((dbTransactions) => {
+    res.json(
+      dbTransactions.catch((err) => {
+        res.status(404).json(err);
+      })
+    );
+  });
+});
