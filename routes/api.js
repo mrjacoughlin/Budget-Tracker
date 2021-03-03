@@ -28,3 +28,5 @@ router.get("/api/transaction", (req, res) => {
       res.json(dbTransaction);
     });
 });
+
+module.exports = router;
